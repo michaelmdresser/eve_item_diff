@@ -1,4 +1,4 @@
-use eve_item_parser::{lookup_id, parse_with_id, ItemWithId};
+use eve_item_parser::{format_tabular, lookup_id, parse_with_id, ItemWithId};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
@@ -8,6 +8,8 @@ pub struct DiffResult {
     right_items: Vec<ItemWithId>,
     left_missing: Vec<ItemWithId>,
     right_missing: Vec<ItemWithId>,
+    left_missing_formatted: String,
+    right_missing_formatted: String,
 }
 
 fn count_by_id(items: Vec<ItemWithId>) -> HashMap<u64, i64> {
@@ -62,8 +64,10 @@ pub fn diff(left_raw: &str, right_raw: &str) -> Result<DiffResult, String> {
     Ok(DiffResult {
         left_items: left,
         right_items: right,
-        left_missing,
-        right_missing,
+        left_missing: left_missing.clone(),
+        right_missing: right_missing.clone(),
+        left_missing_formatted: format_tabular(left_missing),
+        right_missing_formatted: format_tabular(right_missing),
     })
 }
 
@@ -104,5 +108,54 @@ Harpy x3
                 type_id: 28659,
             }]
         );
+        println!("{}", result.left_missing_formatted);
+        println!("{}", result.right_missing_formatted);
+    }
+
+    #[test]
+    fn diff_complex() {
+        let left_raw = "Paladin x1
+Golem x2
+Imperial Navy Acolyte x5
+";
+        let right_raw = "Golem x2
+Harpy x3
+Imperial Navy Acolyte x8
+";
+
+        let mut result = diff(left_raw, right_raw).unwrap();
+
+        result
+            .left_missing
+            .sort_by(|a, b| b.type_id.cmp(&a.type_id));
+        result
+            .right_missing
+            .sort_by(|a, b| b.type_id.cmp(&a.type_id));
+
+        assert_eq!(
+            result.left_missing,
+            vec![
+                ItemWithId {
+                    type_name: String::from("Imperial Navy Acolyte"),
+                    quantity: 3,
+                    type_id: 31864,
+                },
+                ItemWithId {
+                    type_name: String::from("Harpy"),
+                    quantity: 3,
+                    type_id: 11381,
+                },
+            ]
+        );
+        assert_eq!(
+            result.right_missing,
+            vec![ItemWithId {
+                type_name: String::from("Paladin"),
+                quantity: 1,
+                type_id: 28659,
+            }]
+        );
+        println!("{}", result.left_missing_formatted);
+        println!("{}", result.right_missing_formatted);
     }
 }
