@@ -1,0 +1,8 @@
+[package]
+name = "eve_item_diff"
+authors = ["Michael Dresser <michaelmdresser@gmail.com>"]
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+eve_item_parser = { path = "../eve-item-parser" }
