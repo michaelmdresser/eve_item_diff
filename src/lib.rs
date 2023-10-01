@@ -1,7 +1,8 @@
 use eve_item_parser::{lookup_id, parse_with_id, ItemWithId};
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-#[derive(Debug, PartialEq, Clone)]
+#[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
 pub struct DiffResult {
     left_items: Vec<ItemWithId>,
     right_items: Vec<ItemWithId>,
