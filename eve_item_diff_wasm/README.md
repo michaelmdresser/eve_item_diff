@@ -17,8 +17,9 @@ server. Then use a snippet like this to load and use:
 import init, { diff } from './eve_item_diff/eve_item_diff_wasm.js';
 async function run() {
   await init();
-  let {left_items, right_items, left_missing, right_missing} = diff("Paladin x5", "Paladin x3");
-  console.log("items:", items);
+  let {left_items, right_items, left_missing, right_missing, left_missing_formatted, right_missing_formatted} = diff("Paladin x5", "Paladin x3");
+  console.log("left items:", left_items);
+  console.log("left items:", right_items);
 }
 run();
 </script>
