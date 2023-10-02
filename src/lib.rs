@@ -1,4 +1,4 @@
-use eve_item_parser::{format_tabular, lookup_id, parse_with_id, ItemWithId};
+use eve_item_parser::{format_x, lookup_id, parse_with_id, ItemWithId};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
@@ -66,8 +66,8 @@ pub fn diff(left_raw: &str, right_raw: &str) -> Result<DiffResult, String> {
         right_items: right,
         left_missing: left_missing.clone(),
         right_missing: right_missing.clone(),
-        left_missing_formatted: format_tabular(left_missing),
-        right_missing_formatted: format_tabular(right_missing),
+        left_missing_formatted: format_x(left_missing),
+        right_missing_formatted: format_x(right_missing),
     })
 }
 
