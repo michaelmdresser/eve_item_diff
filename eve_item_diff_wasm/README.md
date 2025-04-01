@@ -3,9 +3,8 @@
 WASM-ready version of eve_item_diff for browser usage.
 
 ## Build
-``` sh
-wasm-pack build --no-typescript --target web
-```
+
+See root `Justfile`
 
 ## Use direcly via JS
 
