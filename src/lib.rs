@@ -121,6 +121,7 @@ Imperial Navy Acolyte x5
         let right_raw = "Golem x2
 Harpy x3
 Imperial Navy Acolyte x8
+'Vehemence' Compact Large EMP Smartbomb x4
 ";
 
         let mut result = diff(left_raw, right_raw).unwrap();
@@ -144,6 +145,11 @@ Imperial Navy Acolyte x8
                     type_name: String::from("Harpy"),
                     quantity: 3,
                     type_id: 11381,
+                },
+                ItemWithId {
+                    type_name: String::from("'Vehemence' Compact Large EMP Smartbomb"),
+                    quantity: 4,
+                    type_id: 9678,
                 },
             ]
         );
