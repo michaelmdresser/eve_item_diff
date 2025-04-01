@@ -6,7 +6,7 @@ WASM-ready version of eve_item_diff for browser usage.
 
 See root `Justfile`
 
-## Use direcly via JS
+## Use directly via JS
 
 Place the `.js` and `.wasm` files in a directory (e.g. `eve_item_diff`) on the web
 server. Then use a snippet like this to load and use:
@@ -18,7 +18,7 @@ async function run() {
   await init();
   let {left_items, right_items, left_missing, right_missing, left_missing_formatted, right_missing_formatted} = diff("Paladin x5", "Paladin x3");
   console.log("left items:", left_items);
-  console.log("left items:", right_items);
+  console.log("right items:", right_items);
 }
 run();
 </script>
