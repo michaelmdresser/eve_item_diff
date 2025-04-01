@@ -1,4 +1,4 @@
-# EVE item diff
+# EVE Item Diff
 
 Item list diffing for EVE Online. Mainly developed for diffing fits, but
 applications may be broader. The parser is packaged separately at
