@@ -5,7 +5,7 @@ applications may be broader. The parser is packaged separately at
 [michaelmdresser/eve_item_parser](https://github.com/michaelmdresser/eve_item_parser). A practical application of
 diffing can be found at the [EVE Item Diff](https://michaelmdresser.com/eve-item-diff.html) site.
 
-![image](https://github.com/user-attachments/assets/6e3f8faa-2ceb-4732-85b0-0692d210b13e)
+![](media/diffscreenshot.png)
 
 
 ## WASM
