@@ -3,7 +3,7 @@
 Item list diffing for EVE Online. Mainly developed for diffing fits, but
 applications may be broader. The parser is packaged separately at
 https://github.com/michaelmdresser/eve_item_parser. A practical application of
-diffing can be found at the [EVE Item Diff](https://michaeldresser.io/eve-item-diff.html) site.
+diffing can be found at the [EVE Item Diff](https://michaelmdresser.com/eve-item-diff.html) site.
 
 ## WASM
 
